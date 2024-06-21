@@ -1,3 +1,34 @@
+<?php 
+require "koneksi.php";
+if(isset($_POST["simpan"])){
+
+  // tampung data dari post
+  $nim = $_POST["nim_mhs"];
+  $nama = $_POST["nama_mhs"];
+  $jurusan = $_POST["jurusan_mhs"];
+  $alamat = $_POST["alamat_mhs"];
+  $gambar = $_POST["gambar_mhs"];
+
+  $query = "INSERT INTO tb_mahasiswa
+            VALUES
+            ('', '$nim', '$nama', '$jurusan', '$alamat', '$gambar')
+            ";
+  $result = mysqli_query($koneksi, $query);
+
+  if($result){
+    echo "
+      <script>
+        alert('berhasil tambah data mahasiswa');
+        document.location.href = 'index.php';
+      </script>
+    ";
+  }
+
+}
+
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +38,7 @@
 </head>
 <body>
   <h1>Tambah Data Mahasiswa</h1>
-  <form action="">
+  <form action="" method="post">
     <label>
       Nim :
       <input type="number" name="nim_mhs">

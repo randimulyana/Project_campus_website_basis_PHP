@@ -41,7 +41,7 @@ $row = mysqli_fetch_assoc($result);
       <td><?= $row["jurusan"]; ?></td>
       <td><?= $row["alamat"]; ?></td>
       <td>
-        <a href="">edit</a> | <a href="">hapus</a>
+        <a href="">edit</a> | <a href="delete_mahasiswa.php?id=<?= $row["id_mahasiswa"]; ?>" onclick="return confirm('yakin hapus data');">hapus</a>
       </td>
     </tr>
     <?php $i++ ?>
